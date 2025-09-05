@@ -1,0 +1,3 @@
+variable "AWS.Region" {
+    value "ap-southeast-2" {}
+}
