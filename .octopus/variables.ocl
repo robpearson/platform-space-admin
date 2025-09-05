@@ -1,3 +1,11 @@
 variable "AWS.Region" {
     value "ap-southeast-2" {}
 }
+
+variable "AWS.Account" {
+    type = "AmazonWebServicesAccount"
+
+    value "aws-developer-playground" {
+        environment = ["production"]
+    }
+}
