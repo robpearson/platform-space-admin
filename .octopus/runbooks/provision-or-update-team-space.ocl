@@ -10,4 +10,31 @@ run_retention_policy {
     quantity_to_keep = 100
 }
 
-process {}
+process {
+    step "run-teamkit-template" {
+        name = "Run TeamKit Template"
+
+        action {
+            action_type = "Octopus.TerraformApply"
+            properties = {
+                Octopus.Action.GitRepository.Source = "Project"
+                Octopus.Action.GoogleCloud.ImpersonateServiceAccount = "False"
+                Octopus.Action.GoogleCloud.Project = "adsf"
+                Octopus.Action.GoogleCloud.Region = "asdf"
+                Octopus.Action.GoogleCloud.UseVMServiceAccount = "False"
+                Octopus.Action.GoogleCloud.Zone = "adsf"
+                Octopus.Action.GoogleCloudAccount.Variable = "GCP.Account"
+                Octopus.Action.Script.ScriptSource = "GitRepository"
+                Octopus.Action.Terraform.AllowPluginDownloads = "True"
+                Octopus.Action.Terraform.AzureAccount = "False"
+                Octopus.Action.Terraform.FileSubstitution = "*.tf"
+                Octopus.Action.Terraform.GoogleCloudAccount = "True"
+                Octopus.Action.Terraform.ManagedAccount = "None"
+                Octopus.Action.Terraform.PlanJsonOutput = "False"
+                Octopus.Action.Terraform.RunAutomaticFileSubstitution = "True"
+                Octopus.Action.Terraform.TemplateDirectory = "terraform/teamkit/main.tf"
+            }
+            worker_pool = "hosted-ubuntu"
+        }
+    }
+}
