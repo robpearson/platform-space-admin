@@ -1,11 +1,7 @@
-variable "AWS.Region" {
-    value "ap-southeast-2" {}
-}
+variable "GCP.Account" {
+    type = "GenericOidcAccount"
 
-variable "AWS.Account" {
-    type = "AmazonWebServicesAccount"
-
-    value "aws-developer-playground" {
+    value "gcp-production-main" {
         environment = ["production"]
     }
 }
