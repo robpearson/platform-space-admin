@@ -1,0 +1,7 @@
+variable "GCP.Account" {
+    type = "GenericOidcAccount"
+
+    value "gcp-production-main" {
+        environment = ["production"]
+    }
+}
