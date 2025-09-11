@@ -29,7 +29,7 @@ process {
                 Octopus.Action.Terraform.AllowPluginDownloads = "True"
                 Octopus.Action.Terraform.AzureAccount = "False"
                 Octopus.Action.Terraform.FileSubstitution = "*.tf"
-                Octopus.Action.Terraform.GoogleCloudAccount = "True"
+                Octopus.Action.Terraform.GoogleCloudAccount = "False"
                 Octopus.Action.Terraform.ManagedAccount = "None"
                 Octopus.Action.Terraform.PlanJsonOutput = "False"
                 Octopus.Action.Terraform.RunAutomaticFileSubstitution = "True"
