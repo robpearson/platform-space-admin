@@ -2,6 +2,7 @@ name = "Provision or Update Team Space"
 default_guided_failure_mode = "EnvironmentDefault"
 description = <<-EOT
         **Action**: Create a team tenant and provision a space with the desired options.
+        
         **Affects**: Platform Admin Space and New Team Space.
         EOT
 multi_tenancy_mode = "Tenanted"
