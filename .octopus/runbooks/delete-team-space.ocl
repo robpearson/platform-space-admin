@@ -1,4 +1,4 @@
-name = "Delete Team Space"
+name = "Tear Down (Delete) Team Space"
 default_guided_failure_mode = "EnvironmentDefault"
 description = <<-EOT
         **Action**: Delete a team tenant and space.
