@@ -48,4 +48,23 @@ process {
             }
         }
     }
+
+    step "provision-new-gcp-project" {
+        name = "Provision new GCP Project"
+
+        action {
+            action_type = "Octopus.GoogleCloudScripting"
+            properties = {
+                Octopus.Action.GoogleCloud.ImpersonateServiceAccount = "False"
+                Octopus.Action.GoogleCloud.Project = "asdf"
+                Octopus.Action.GoogleCloud.Region = "adsf"
+                Octopus.Action.GoogleCloud.UseVMServiceAccount = "True"
+                Octopus.Action.GoogleCloud.Zone = "adsf"
+                Octopus.Action.Script.ScriptBody = "Write-Host \"Hello world!\""
+                Octopus.Action.Script.ScriptSource = "Inline"
+                Octopus.Action.Script.Syntax = "PowerShell"
+            }
+            worker_pool = "hosted-ubuntu"
+        }
+    }
 }
