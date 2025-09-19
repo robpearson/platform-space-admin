@@ -16,6 +16,25 @@ run_retention_policy {
 }
 
 process {
+    step "provision-new-gcp-project" {
+        name = "Provision new GCP Project"
+
+        action {
+            action_type = "Octopus.GoogleCloudScripting"
+            properties = {
+                Octopus.Action.GoogleCloud.ImpersonateServiceAccount = "False"
+                Octopus.Action.GoogleCloud.Project = "asdf"
+                Octopus.Action.GoogleCloud.Region = "adsf"
+                Octopus.Action.GoogleCloud.UseVMServiceAccount = "True"
+                Octopus.Action.GoogleCloud.Zone = "adsf"
+                Octopus.Action.Script.ScriptBody = "Write-Host \"Hello world!\""
+                Octopus.Action.Script.ScriptSource = "Inline"
+                Octopus.Action.Script.Syntax = "PowerShell"
+            }
+            worker_pool = "hosted-ubuntu"
+        }
+    }
+
     step "run-teamkit-template" {
         name = "Run TeamKit Template"
 
@@ -46,25 +65,6 @@ process {
                 feed = "dockerhub"
                 image = "octopusdeploy/worker-tools:6.4.0-ubuntu.22.04"
             }
-        }
-    }
-
-    step "provision-new-gcp-project" {
-        name = "Provision new GCP Project"
-
-        action {
-            action_type = "Octopus.GoogleCloudScripting"
-            properties = {
-                Octopus.Action.GoogleCloud.ImpersonateServiceAccount = "False"
-                Octopus.Action.GoogleCloud.Project = "asdf"
-                Octopus.Action.GoogleCloud.Region = "adsf"
-                Octopus.Action.GoogleCloud.UseVMServiceAccount = "True"
-                Octopus.Action.GoogleCloud.Zone = "adsf"
-                Octopus.Action.Script.ScriptBody = "Write-Host \"Hello world!\""
-                Octopus.Action.Script.ScriptSource = "Inline"
-                Octopus.Action.Script.Syntax = "PowerShell"
-            }
-            worker_pool = "hosted-ubuntu"
         }
     }
 }
